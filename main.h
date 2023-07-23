@@ -3,6 +3,11 @@
 
 #include <stdarg.h>
 
+/**
+ * struct conv_spec - Strct conv_spec
+ * @conv_spec: The conversion specifier
+ * @f: The function associated
+ */
 typedef struct conv_spec
 {
 	char *conv_spec;
