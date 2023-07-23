@@ -49,6 +49,8 @@ int _printf(const char *format, ...)
 					s = va_arg(args, char *);
 					if (s != NULL)
 						num_characters += write(1, s, _strlen(s));
+					else
+						return (-1);
 				}
 				else if (*(format + i + 1) != '\0' && *(format + i + 1) == '%')
 					num_characters += write(1, format + i + 1, 1);
