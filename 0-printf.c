@@ -27,12 +27,10 @@ int _strlen(char *s)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i, num_characters = 0;
-	char *s;
-	char c;
+	int i = 0, num_characters = 0;
+	char *s, c;
 
 	va_start(args, format);
-	i = 0;
 	if (format != NULL)
 	{
 		while (*(format + i) != '\0')
@@ -53,17 +51,12 @@ int _printf(const char *format, ...)
 						num_characters += write(1, s, _strlen(s));
 				}
 				else if (*(format + i + 1) != '\0' && *(format + i + 1) == '%')
-					write(1, format + i + 1, 1);
+					num_characters += write(1, format + i + 1, 1);
 				i++;
 
 			}
 			i++;
 		}
-	}
-	else if (format == "")
-	{
-		c = '\n';
-		write(1, &c, 1);
 	}
 	return (num_characters);
 }
