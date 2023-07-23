@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
-#include <string.h>
 
 /**
  * get_print_function - A pointer to a function
