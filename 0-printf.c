@@ -3,21 +3,6 @@
 #include <unistd.h>
 
 /**
- * _strlen - Return the length of a string
- * @s: The string whose length will be returned
- *
- * Return: The length of the string s.
- */
-int _strlen(char *s)
-{
-	int length = 0;
-
-	while (*(s + length) != '\0')
-		length++;
-	return (length);
-}
-
-/**
  * _printf - produce output according to a format
  * @format: A character string
  *
@@ -26,43 +11,38 @@ int _strlen(char *s)
  */
 int _printf(const char *format, ...)
 {
+	int (*print_function)(char, const char *, int);
+	int num_characters = 0, n = 0;
+	char *s = NULL, c = 'o';
 	va_list args;
-	int i = 0, num_characters = 0;
-	char *s, c;
 
 	va_start(args, format);
 	if (format != NULL)
 	{
-		while (*(format + i) != '\0')
+		while (*format != '\0')
 		{
-			if (*(format + i) != '%')
-				num_characters += write(1, format + i, 1);
-			else
+			if (*format != '%')
+				num_characters += _putchar(*format);
+			else if (*(format + 1) != '\0')
 			{
-				if (*(format + i + 1) != '\0' && *(format + i + 1) == 'c')
-				{
-					c = va_arg(args, int);
-					num_characters += write(1, &c, 1);
-				}
-				else if (*(format + i + 1) != '\0' && *(format + i + 1) == 's')
-				{
-					s = va_arg(args, char *);
-					if (s != NULL)
-						num_characters += write(1, s, _strlen(s));
-					else
-						return (-1);
-				}
-				else if (*(format + i + 1) != '\0' && *(format + i + 1) == '%')
-					num_characters += write(1, format + i + 1, 1);
+				print_function = get_print_function(++format);
+				if (*format == 'c')
+					num_characters += print_function(va_arg(args, int), s, n);
+				else if (*format == 's')
+					num_characters += print_function(c, va_arg(args, char *), n);
+				else if (*format == '%')
+					num_characters += print_function('%', s, n);
 				else
 					return (-1);
-				i++;
-
 			}
-			i++;
+			else
+				return (-1);
+
+			format++;
 		}
 	}
 	else
 		return (-1);
+	va_end(args);
 	return (num_characters);
 }
