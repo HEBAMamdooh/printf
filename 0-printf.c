@@ -13,10 +13,7 @@ int _strlen(char *s)
 	int length = 0;
 
 	while (*(s + length) != '\0')
-	{
 		length++;
-	}
-
 	return (length);
 }
 
@@ -62,6 +59,11 @@ int _printf(const char *format, ...)
 			}
 			i++;
 		}
+	}
+	else if (format == "")
+	{
+		c = '\n';
+		write(1, &c, 1);
 	}
 	return (num_characters);
 }
