@@ -44,9 +44,7 @@ int _printf(const char *format, ...)
 		while (*(format + i) != '\0')
 		{
 			if (*(format + i) != '%')
-			{
 				num_characters += write(1, format + i, 1);
-			}
 			else
 			{
 				if (*(format + i + 1) != '\0' && *(format + i + 1) == 'c')
@@ -67,9 +65,13 @@ int _printf(const char *format, ...)
 					i++;
 				}
 			}
-
 			i++;
 		}
+	}
+	if (_strlen(format) == 0)
+	{
+		c = '\n';
+		write(1, &c, 1);
 	}
 	return (num_characters);
 }
