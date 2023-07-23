@@ -24,9 +24,6 @@ int _strlen(char *s)
  * _printf - produce output according to a format
  * @format: A character string
  *
- * The function Write to stdout, the standard output stream
- * The format string is composed of zero or more directives
- *
  * Return: The number of characters printed (excluding
  * the null byte used to end output to strings).
  */
@@ -39,8 +36,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	i = 0;
-	if (format != NULL)
-	{
+	
 		while (*(format + i) != '\0')
 		{
 			if (*(format + i) != '%')
@@ -67,11 +63,6 @@ int _printf(const char *format, ...)
 			}
 			i++;
 		}
-	}
-	if (_strlen(format) == 0)
-	{
-		c = '\n';
-		write(1, &c, 1);
-	}
+	
 	return (num_characters);
 }
