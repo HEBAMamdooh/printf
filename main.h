@@ -19,6 +19,8 @@ int _puts(const char *s);
 int _printf(const char *format, ...);
 int _print_char(char c, const char *s, int n);
 int _print_string(char c, const char *s, int n);
+int _print_int(char c, const char *s, int n);
 int (*get_print_function(const char *s))(char, const char *, int);
+int print_binary(unsigned int n);
 
 #endif /* MAIN_H */
