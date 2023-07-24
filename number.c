@@ -8,13 +8,9 @@
  *
  * Return: The number of bytes printed.
  */
-int print_binary(int n)
+int print_binary(unsigned int n)
 {
 	static int count;
-	unsigned int m;
-
-	if (n < 0)
-		m = -n;
 
 	if (n == 0 && count == 0)
 	{
