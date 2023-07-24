@@ -26,5 +26,8 @@ int _strlen(const char *s)
  */
 int _puts(const char *s)
 {
-	return (write(1, s, _strlen(s)));
+	if (s == NULL)
+		return (-1);
+	else
+		return (write(1, s, _strlen(s)));
 }
