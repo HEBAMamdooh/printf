@@ -6,8 +6,7 @@
  * _printf - produce output according to a format
  * @format: A character string
  *
- * Return: The number of characters printed (excluding
- * the null byte used to end output to strings).
+ * Return: The number of characters printed
  */
 int _printf(const char *format, ...)
 {
@@ -27,19 +26,16 @@ int _printf(const char *format, ...)
 			{
 				print_function = get_print_function(++format);
 				if (*format == 'c')
-					num_characters += print_function(va_arg(args, int), s, n);
+					n = print_function(va_arg(args, int), s, n);
 				else if (*format == 's')
-					num_characters += print_function(c, va_arg(args, char *), n);
+					n = print_function(c, va_arg(args, char *), n);
 				else if (*format == '%')
-					num_characters += print_function('%', s, n);
+					n = print_function('%', s, n);
 				else if (*format == 'b')
-				{
 					n = print_function(*format, s, va_arg(args, int));
-					if (n > 0)
-						num_characters += n;
-				}
-				else
+				if (n == -1)
 					return (-1);
+				num_characters += n;
 			}
 			else
 				return (-1);
