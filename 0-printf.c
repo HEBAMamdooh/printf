@@ -32,12 +32,17 @@ int _printf(const char *format, ...)
 					num_characters += print_function(c, va_arg(args, char *), n);
 				else if (*format == '%')
 					num_characters += print_function('%', s, n);
+				else if (*format == 'b')
+				{
+					n = print_function(*format, s, va_arg(args, int));
+					if (n > 0)
+						num_characters += n;
+				}
 				else
 					return (-1);
 			}
 			else
 				return (-1);
-
 			format++;
 		}
 	}
