@@ -25,6 +25,7 @@ int _printf(const char *format, ...)
 			else if (*(format + 1) != '\0')
 			{
 				print_function = get_print_function(++format);
+				
 				if (*format == 'c')
 					n = print_function(va_arg(args, int), s, n);
 				else if (*format == 's')
@@ -33,7 +34,7 @@ int _printf(const char *format, ...)
 					n = print_function('%', s, n);
 				else if (*format == 'b')
 					n = print_function(*format, s, va_arg(args, int));
-				if (n == -1)
+				else
 					return (-1);
 				num_characters += n;
 			}
