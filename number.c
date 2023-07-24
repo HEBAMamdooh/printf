@@ -11,9 +11,10 @@
 int print_binary(int n)
 {
 	static int count;
-	
+	unsigned int m;
+
 	if (n < 0)
-		return (-1);
+		m = -n;
 
 	if (n == 0 && count == 0)
 	{
