@@ -10,7 +10,7 @@
 int _putchar(char c)
 {
 	if (c == '\0')
-		return (0);
+		return (-1);
 	else
 		return (write(1, &c, 1));
 }
