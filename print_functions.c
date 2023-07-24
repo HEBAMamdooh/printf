@@ -16,7 +16,6 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 	return (_putchar(c));
 }
 
-
 /**
  * _print_string - Handle the conversion specifer s
  * @c: A character
@@ -42,10 +41,8 @@ int _print_int(__attribute__((unused)) char c,
 __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 {
 	int k;
+
 	if (c == 'b')
 		k = print_binary(n);
 	return (k);
 }
-
-
-
