@@ -1,6 +1,20 @@
 #include "main.h"
 
 /**
+ * number_digits_binary - Return the number of digits
+ * @n: The input number
+ *
+ * Return: The number of digits.
+ */
+int number_digits_binary(int n)
+{
+	if (n / 2 == 0 && n % 2 == 0)
+		return (0);
+
+	return (1 + number_digits_binary(n / 2));
+}
+
+/**
  * print_binary - Handle the conversion specifier b
  * @n: The input unsigned int
  *
@@ -8,20 +22,11 @@
  *
  * Return: The number of bytes printed.
  */
-int print_binary(unsigned int n)
+void print_binary(unsigned int n)
 {
-	static int count;
-
-	if (n == 0 && count == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
 	if (n / 2 == 0 && n % 2 == 0)
-		return (0);
+		return;
 
-	count++;
 	print_binary(n / 2);
 	_putchar('0' + n % 2);
-	return (count);
 }
