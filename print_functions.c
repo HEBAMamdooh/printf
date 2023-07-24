@@ -44,8 +44,7 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 	{
 		print_binary(n);
 		return (number_digits_binary(n));
-		
-	}	
+	}
 	else
 		return (-1);
 }
