@@ -8,22 +8,23 @@
  *
  * Return: The number of bytes printed.
  */
-int print_binary(unsigned int n)
+int print_binary(int n)
 {
-	static int count = 0;
+	static int count;
 	
+	if (n < 0)
+		return (-1);
+
 	if (n == 0 && count == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
 	if (n / 2 == 0 && n % 2 == 0)
-	{
 		return (0);
-	}
 
 	count++;
-	print_binary(n / 2);	
+	print_binary(n / 2);
 	_putchar('0' + n % 2);
 	return (count);
 }
