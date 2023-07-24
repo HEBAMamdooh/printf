@@ -40,9 +40,12 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 int _print_int(__attribute__((unused)) char c,
 __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 {
-	int k;
-
-	if (c == 'b')
-		k = print_binary(n);
-	return (k);
+	if (c == 'b' && n >= 0)
+	{
+		print_binary(n);
+		return (number_digits_binary(n));
+		
+	}	
+	else
+		return (-1);
 }
