@@ -8,7 +8,7 @@
  *
  * Return: A pointer to the correct function. or NULL if there is no match
  */
-int (*get_print_function(const char *s))(char, const char*, long)
+int (*get_print_function(const char *s))(char, const char*, long int)
 {
 	int i = 0;
 
