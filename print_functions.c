@@ -54,11 +54,14 @@ __attribute__((unused)) unsigned long int m)
 		_putchar('0');
 		l = 1;
 	}
-	if (c == 'b' && n > 0)
+	if (c == 'b')
 	{
-		print_binary(n);
-		l = number_digits_binary(n);
+		print_binary(m);
+		l = number_digits_binary(m);
 	}
+	else
+		l = -1;
+
 	if ((c == 'd' || c == 'i')  && n > 0)
 	{
 		print_integer(n);
