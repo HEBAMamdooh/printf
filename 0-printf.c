@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	int (*print_function)(char, const char *, long);
-	long num_characters = 0, n = 0;
+	int num_characters = 0, n = 0;
 	char *s = NULL, c = 'o';
 	va_list args;
 
