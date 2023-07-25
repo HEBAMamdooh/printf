@@ -59,8 +59,6 @@ __attribute__((unused)) unsigned long int m)
 		print_binary(m);
 		l = number_digits_binary(m);
 	}
-	else
-		l = -1;
 
 	if ((c == 'd' || c == 'i')  && n > 0)
 	{
