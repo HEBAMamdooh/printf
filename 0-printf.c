@@ -10,8 +10,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int (*print_function)(char, const char *, int);
-	int num_characters = 0, n = 0;
+	int (*print_function)(char, const char *, long);
+	long num_characters = 0, n = 0;
 	char *s = NULL, c = 'o';
 	va_list args;
 
@@ -31,8 +31,9 @@ int _printf(const char *format, ...)
 					n = print_function(c, va_arg(args, char *), n);
 				else if (*format == '%')
 					n = print_function('%', s, n);
-				else if (*format == 'd' || *format == 'i' || *format == 'b')
-					n = print_function(*format, s, va_arg(args, int));
+				else if (*format == 'd' || *format == 'i' || *format == 'b'
+					|| *format == 'u')
+					n = print_function(*format, s, va_arg(args, long int));
 				else
 					return (-1);
 				if (n == -1)
