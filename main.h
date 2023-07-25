@@ -24,8 +24,9 @@ int _print_int(char c, const char *s, long int n);
 int (*get_print_function(const char *s))(char, const char *, long int);
 
 void print_binary(unsigned long int n);
+void print_integer(unsigned int n);
+void print_unsigned_integer(unsigned long n);
 int number_digits_binary(long int n);
-void print_integer(unsigned long int n);
 int number_digits(long int n);
 
 #endif /* MAIN_H */
