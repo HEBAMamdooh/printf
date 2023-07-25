@@ -17,11 +17,15 @@ typedef struct conv_spec
 int _putchar(char c);
 int _puts(const char *s);
 int _printf(const char *format, ...);
+
 int _print_char(char c, const char *s, int n);
 int _print_string(char c, const char *s, int n);
 int _print_int(char c, const char *s, int n);
 int (*get_print_function(const char *s))(char, const char *, int);
+
 void print_binary(unsigned int n);
 int number_digits_binary(int n);
+void print_integer(int n);
+int number_digits(int n);
 
 #endif /* MAIN_H */
