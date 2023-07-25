@@ -40,16 +40,30 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 int _print_int(__attribute__((unused)) char c,
 __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 {
-	if (c == 'b' && n > 0)
-	{
-		print_binary(n);
-		return (number_digits_binary(n));
-	}
-	else if (c == 'b' && n == 0)
+	int m;
+	unsigned int k;
+
+	if (n == 0)
 	{
 		_putchar('0');
 		return (1);
 	}
-	else
-		return (-1);
+	if (c == 'b' && n > 0)
+	{
+		print_binary(n);
+		m = number_digits_binary(n);
+	}
+	if ((c == 'd' || c == 'i') && n > 0)
+	{
+		print_integer(n);
+		m = number_digits(n);
+	}
+	else if ((c == 'd' || c == 'i') && n < 0)
+	{
+		k = -n;
+		_putchar('-');
+		print_integer(k);
+		m = number_digits(k) + 1;
+	}
+	return (m);
 }
