@@ -11,21 +11,21 @@
 typedef struct conv_spec
 {
 	char *conv_spec;
-	int (*f)(char c, const char *s, int n);
+	int (*f)(char c, const char *s, long int  n);
 } conv_spec_t;
 
 int _putchar(char c);
 int _puts(const char *s);
 int _printf(const char *format, ...);
 
-int _print_char(char c, const char *s, int n);
-int _print_string(char c, const char *s, int n);
-int _print_int(char c, const char *s, int n);
-int (*get_print_function(const char *s))(char, const char *, int);
+int _print_char(char c, const char *s, long int n);
+int _print_string(char c, const char *s, long int n);
+int _print_int(char c, const char *s, long int n);
+int (*get_print_function(const char *s))(char, const char *, long int);
 
-void print_binary(unsigned int n);
-int number_digits_binary(int n);
-void print_integer(int n);
-int number_digits(int n);
+void print_binary(unsigned long int n);
+int number_digits_binary(long int n);
+void print_integer(unsigned long int n);
+int number_digits(long int n);
 
 #endif /* MAIN_H */
