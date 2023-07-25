@@ -40,13 +40,13 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 int _print_int(__attribute__((unused)) char c,
 __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 {
-	unsigned long int m;
+	int m;
 	unsigned long int k;
 
 	if (n == 0)
 	{
 		_putchar('0');
-		return (1);
+		m = 1;
 	}
 	if (c == 'b' && n > 0)
 	{
