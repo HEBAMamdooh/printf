@@ -40,8 +40,8 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 int _print_int(__attribute__((unused)) char c,
 __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 {
-	unsigned long m;
-	unsigned long k;
+	unsigned long int m;
+	unsigned long int k;
 
 	if (n == 0)
 	{
@@ -55,9 +55,8 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 	}
 	if ((c == 'd' || c == 'i')  && n > 0)
 	{
-		k = n;
-		print_integer(k);
-		m = number_digits(k);
+		print_integer(n);
+		m = number_digits(n);
 	}
 	else if ((c == 'd' || c == 'i') && n < 0)
 	{
@@ -66,9 +65,11 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 		print_integer(k);
 		m = number_digits(k) + 1;
 	}
-	else if (c == 'u' && n > 0)
+
+	if (c == 'u' && n > 0)
 	{
 		print_integer(n);
+		m = number_digits(n);
 	}
 
 	return (m);
