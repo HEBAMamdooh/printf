@@ -10,8 +10,9 @@
  */
 int _printf(const char *format, ...)
 {
-	int (*print_function)(char, const char *, long);
+	int (*print_function)(char, const char *, long int, unsigned long int);
 	int num_characters = 0, n = 0;
+	unsigned int m = 0;
 	char *s = NULL, c = 'o';
 	va_list args;
 
@@ -24,16 +25,15 @@ int _printf(const char *format, ...)
 				num_characters += _putchar(*format);
 			else if (*(format + 1) != '\0')
 			{
-				print_function = get_print_function(++format);
+				print_function = get_f(++format);
 				if (*format == 'c')
-					n = print_function(va_arg(args, int), s, n);
+					n = print_function(va_arg(args, int), s, n, m);
 				else if (*format == 's')
-					n = print_function(c, va_arg(args, char *), n);
+					n = print_function(c, va_arg(args, char *), n, m);
 				else if (*format == '%')
-					n = print_function('%', s, n);
-				else if (*format == 'd' || *format == 'i' || *format == 'b'
-					|| *format == 'u')
-					n = print_function(*format, s, va_arg(args, long int));
+					n = print_function('%', s, n, m);
+				else if (*format == 'd' || *format == 'i' || *format == 'b')
+					n = print_function(*format, s, (long int)va_arg(args, int), m);
 				else
 					return (-1);
 				if (n == -1)
