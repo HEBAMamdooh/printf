@@ -7,11 +7,13 @@
  * @c: A character
  * @s: A pointer to a string
  * @n: An integer
+ * @m: An unsigned integer
  *
  * Return: 1 or -1 if it fails.
  */
 int _print_char(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) long int n)
+__attribute__((unused)) const char *s, __attribute__((unused)) long int n,
+__attribute__((unused)) unsigned long int m)
 {
 	return (_putchar(c));
 }
@@ -21,11 +23,13 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
  * @c: A character
  * @s: A pointer to a string
  * @n: An integer
+ * @m: An unsigned integer
  *
  * Return: The length of the string or -1 if it fails.
  */
 int _print_string(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) long int n)
+__attribute__((unused)) const char *s, __attribute__((unused)) long int n,
+__attribute__((unused)) unsigned long int m)
 {
 	return (_puts(s));
 }
@@ -34,42 +38,39 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
  * @c: A character
  * @s: A pointer to a string
  * @n: An integer
+ * @m: An unsigned integer
  *
  * Return: The number of bytes printed or - 1 if it fails.
  */
 int _print_int(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) long int n)
+__attribute__((unused)) const char *s, __attribute__((unused)) long int n,
+__attribute__((unused)) unsigned long int m)
 {
-	int m;
+	int l;
 	unsigned long int k;
 
 	if (n == 0)
 	{
 		_putchar('0');
-		m = 1;
+		l = 1;
 	}
 	if (c == 'b' && n > 0)
 	{
 		print_binary(n);
-		m = number_digits_binary(n);
+		l = number_digits_binary(n);
 	}
-	else if ((c == 'd' || c == 'i')  && n > 0)
+	if ((c == 'd' || c == 'i')  && n > 0)
 	{
 		print_integer(n);
-		m = number_digits(n);
+		l = number_digits(n);
 	}
 	else if ((c == 'd' || c == 'i') && n < 0)
 	{
 		k = -n;
 		_putchar('-');
 		print_integer(k);
-		m = number_digits(k) + 1;
-	}
-	else if (c == 'u' && n > 0)
-	{
-		print_unsigned_integer(n);
-		m = number_digits(n);
+		l = number_digits(k) + 1;
 	}
 
-	return (m);
+	return (l);
 }
