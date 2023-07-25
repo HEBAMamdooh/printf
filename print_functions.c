@@ -11,7 +11,7 @@
  * Return: 1 or -1 if it fails.
  */
 int _print_char(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) int n)
+__attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 {
 	return (_putchar(c));
 }
@@ -25,7 +25,7 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
  * Return: The length of the string or -1 if it fails.
  */
 int _print_string(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) int n)
+__attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 {
 	return (_puts(s));
 }
@@ -38,10 +38,10 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
  * Return: The number of bytes printed or - 1 if it fails.
  */
 int _print_int(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) int n)
+__attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 {
-	int m;
-	unsigned int k;
+	unsigned long m;
+	unsigned long k;
 
 	if (n == 0)
 	{
@@ -53,10 +53,11 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 		print_binary(n);
 		m = number_digits_binary(n);
 	}
-	if ((c == 'd' || c == 'i') && n > 0)
+	if ((c == 'd' || c == 'i')  && n > 0)
 	{
-		print_integer(n);
-		m = number_digits(n);
+		k = n;
+		print_integer(k);
+		m = number_digits(k);
 	}
 	else if ((c == 'd' || c == 'i') && n < 0)
 	{
@@ -65,5 +66,10 @@ __attribute__((unused)) const char *s, __attribute__((unused)) int n)
 		print_integer(k);
 		m = number_digits(k) + 1;
 	}
+	else if (c == 'u' && n > 0)
+	{
+		print_integer(n);
+	}
+
 	return (m);
 }
