@@ -8,7 +8,7 @@
  *
  * Return: A pointer to the correct function. or NULL if there is no match
  */
-int (*get_print_function(const char *s))(char, const char*, int)
+int (*get_print_function(const char *s))(char, const char*, long)
 {
 	int i = 0;
 
@@ -19,10 +19,11 @@ int (*get_print_function(const char *s))(char, const char*, int)
 		{ "b", _print_int},
 		{ "d", _print_int},
 		{ "i", _print_int},
+		{ "u", _print_int},
 		{NULL, NULL}
 	};
 
-	while (i < 6)
+	while (conv_specs[i].conv_spec != NULL)
 	{
 		if (*s == *(conv_specs[i].conv_spec))
 		{
