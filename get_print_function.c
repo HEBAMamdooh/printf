@@ -17,10 +17,12 @@ int (*get_print_function(const char *s))(char, const char*, int)
 		{ "s", _print_string},
 		{ "%", _print_char},
 		{ "b", _print_int},
+		{ "d", _print_int},
+		{ "i", _print_int},
 		{NULL, NULL}
 	};
 
-	while (i < 4)
+	while (i < 6)
 	{
 		if (*s == *(conv_specs[i].conv_spec))
 		{
