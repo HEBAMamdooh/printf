@@ -6,7 +6,7 @@
  *
  * Return: The number of digits.
  */
-int number_digits_binary(int n)
+int number_digits_binary(long int n)
 {
 	if (n / 2 == 0 && n % 2 == 0)
 		return (0);
@@ -20,7 +20,7 @@ int number_digits_binary(int n)
  *
  * Return: The number of digits.
  */
-int number_digits(int n)
+int number_digits(long int n)
 {
 	if (n / 10 == 0 && n % 10 == 0)
 		return (0);
@@ -36,7 +36,7 @@ int number_digits(int n)
  *
  * Return: void.
  */
-void print_binary(unsigned int n)
+void print_binary(unsigned long int n)
 {
 	if (n / 2 == 0 && n % 2 == 0)
 		return;
@@ -51,7 +51,7 @@ void print_binary(unsigned int n)
  *
  * Return: void
  */
-void print_integer(int n)
+void print_integer(unsigned long n)
 {
 	if (n / 10 == 0 && n % 10 == 0)
 		return;
