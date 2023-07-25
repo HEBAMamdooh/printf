@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 					n = print_function(c, va_arg(args, char *), n);
 				else if (*format == '%')
 					n = print_function('%', s, n);
-				else if (*format == 'b')
+				else if (*format == 'd' || *format == 'i' || *format == 'b')
 					n = print_function(*format, s, va_arg(args, int));
 				else
 					return (-1);
