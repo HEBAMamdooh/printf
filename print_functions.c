@@ -53,7 +53,6 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n)
 		print_binary(n);
 		m = number_digits_binary(n);
 	}
-	
 	if ((c == 'd' || c == 'i')  && n > 0)
 	{
 		print_integer(n);
