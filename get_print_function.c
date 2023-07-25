@@ -3,12 +3,12 @@
 #include <stdarg.h>
 
 /**
- * get_print_function - A pointer to a function
+ * get_f - A pointer to a function
  * @s: A pointer to a string
  *
  * Return: A pointer to the correct function. or NULL if there is no match
  */
-int (*get_print_function(const char *s))(char, const char*, long int)
+int (*get_f(const char *s))(char, const char*, long int, unsigned long int)
 {
 	int i = 0;
 
