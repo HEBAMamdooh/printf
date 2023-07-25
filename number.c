@@ -15,12 +15,26 @@ int number_digits_binary(int n)
 }
 
 /**
+ * number_digits - Return the number of digits of a decimal
+ * @n: The input number
+ *
+ * Return: The number of digits.
+ */
+int number_digits(int n)
+{
+	if (n / 10 == 0 && n % 10 == 0)
+		return (0);
+
+	return (1 + number_digits(n / 10));
+}
+
+/**
  * print_binary - Handle the conversion specifier b
  * @n: The input unsigned int
  *
  * The function converts the unsigned argument to binary
  *
- * Return: The number of bytes printed.
+ * Return: void.
  */
 void print_binary(unsigned int n)
 {
@@ -29,4 +43,19 @@ void print_binary(unsigned int n)
 
 	print_binary(n / 2);
 	_putchar('0' + n % 2);
+}
+
+/**
+ * print_integer - Handle the conversion specifiers d and i
+ * @n: The input integer
+ *
+ * Return: void
+ */
+void print_integer(int n)
+{
+	if (n / 10 == 0 && n % 10 == 0)
+		return;
+
+	print_integer(n / 10);
+	_putchar('0' + n % 10);
 }
