@@ -51,7 +51,7 @@ void print_binary(unsigned long int n)
  *
  * Return: void
  */
-void print_integer(unsigned long n)
+void print_integer(unsigned long int n)
 {
 	if (n / 10 == 0 && n % 10 == 0)
 		return;
