@@ -51,22 +51,11 @@ void print_binary(unsigned long int n)
  *
  * Return: void
  */
-void print_integer(unsigned int n)
+void print_integer(unsigned long int n)
 {
 	if (n / 10 == 0 && n % 10 == 0)
 		return;
 
 	print_integer(n / 10);
 	_putchar('0' + n % 10);
-}
-
-/**
- * print_unsigned_integer - Handle the conversion specifier u
- * @n: The input integer
- *
- * Return void.
- */
-void print_unsigned_integer(unsigned long int n)
-{
-	print_integer(n);
 }
