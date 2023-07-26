@@ -43,6 +43,8 @@ int _printf(const char *format, ...)
 				n = print_function('%', s, n, m);
 			else if (*format == 'd' || *format == 'i' || *format == 'b')
 				n = print_function(*format, s, (long int)va_arg(args, int), m);
+			else
+				return (-1);
 			if (n == -1)
 				return (-1);
 			num_characters += n;
