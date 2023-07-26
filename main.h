@@ -17,6 +17,7 @@ typedef struct conv_spec
 int _putchar(char c);
 int _puts(const char *s);
 int _printf(const char *format, ...);
+int _print_cases(const char *format, va_list args);
 
 int _print_char(char c, const char *s, long int n, unsigned long int m);
 int _print_string(char c, const char *s, long int n, unsigned long int m);
