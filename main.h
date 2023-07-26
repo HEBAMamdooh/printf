@@ -21,6 +21,7 @@ int _print_cases(const char *format, va_list args);
 
 int _print_char(char c, const char *s, long int n, unsigned long int m);
 int _print_string(char c, const char *s, long int n, unsigned long int m);
+int _print_reversed_string(char c, const char *s, long int n, unsigned long int m);
 int _print_int(char c, const char *s, long int n, unsigned long int m);
 int (*get_f(const char *s))(char, const char *, long int, unsigned long int);
 
