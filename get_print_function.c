@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdarg.h>
-
+#include <string.h>
 /**
  * get_f - A pointer to a function
  * @s: A pointer to a string
@@ -32,6 +31,9 @@ int (*get_f(const char *s))(char, const char*, long int, unsigned long int)
 
 		i++;
 	}
+
+	if (*(s + 1) != '\0' && !strchr("cs%bdiu", *(s + 1)) && *(s + 1) != '%')
+		return (NULL);
 
 	return (NULL);
 }

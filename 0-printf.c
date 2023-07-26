@@ -27,7 +27,15 @@ int _printf(const char *format, ...)
 		else if (*(format + 1) != '\0')
 		{
 			print_function = get_f(++format);
-			if (*format == 'c')
+			if (print_function == NULL)
+			{
+				num_characters += _putchar('%');
+				if (*(format + 1) == ' ')
+					format++;
+				else
+					num_characters += _putchar(*format);
+			}
+			else if (*format == 'c')
 				n = print_function(va_arg(args, int), s, n, m);
 			else if (*format == 's')
 				n = print_function(c, va_arg(args, char *), n, m);
@@ -35,8 +43,6 @@ int _printf(const char *format, ...)
 				n = print_function('%', s, n, m);
 			else if (*format == 'd' || *format == 'i' || *format == 'b')
 				n = print_function(*format, s, (long int)va_arg(args, int), m);
-			else
-				return (-1);
 			if (n == -1)
 				return (-1);
 			num_characters += n;
