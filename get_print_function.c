@@ -19,6 +19,9 @@ int (*get_f(const char *s))(char, const char*, long int, unsigned long int)
 		{ "d", _print_int},
 		{ "i", _print_int},
 		{ "u", _print_int},
+		{ "o", _print_int},
+		{ "x", _print_int},
+		{ "X", _print_int},
 		{NULL, NULL}
 	};
 
@@ -32,7 +35,7 @@ int (*get_f(const char *s))(char, const char*, long int, unsigned long int)
 		i++;
 	}
 
-	if (*(s + 1) != '\0' && !strchr("cs%bdiu", *(s + 1)) && *(s + 1) != '%')
+	if (*(s + 1) != '\0' && !strchr("cs%bdiuoxX", *(s + 1)) && *(s + 1) != '%')
 		return (NULL);
 
 	return (NULL);
