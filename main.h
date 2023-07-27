@@ -26,8 +26,12 @@ int (*get_f(const char *s))(char, const char *, long int, unsigned long int);
 
 void print_binary(unsigned long int n);
 void print_integer(unsigned long int n);
-void print_unsigned_integer(unsigned long int n);
+void print_octal(unsigned long int n);
+void print_hexadecimal_x(unsigned long int n);
+void print_hexadecimal_X(unsigned long int n);
 int number_digits_binary(long int n);
 int number_digits(long int n);
+int number_digits_octal(long int n);
+int number_digits_hexadecimal_x(long int n);
 
 #endif /* MAIN_H */
