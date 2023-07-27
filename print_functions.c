@@ -17,7 +17,6 @@ __attribute__((unused)) unsigned long int m)
 {
 	return (_putchar(c));
 }
-
 /**
  * _print_string - Handle the conversion specifer s
  * @c: A character
@@ -47,7 +46,7 @@ __attribute__((unused)) const char *s, __attribute__((unused)) long int n,
 __attribute__((unused)) unsigned long int m)
 {
 	int l;
-	unsigned long int k;
+	unsigned long int k = -n;
 
 	if (n == 0)
 	{
@@ -59,19 +58,31 @@ __attribute__((unused)) unsigned long int m)
 		print_binary(n);
 		l = number_digits_binary(n);
 	}
-
-	if ((c == 'd' || c == 'i')  && n > 0)
+	else if (c == 'o' && n > 0)
+	{
+		print_octal(n);
+		l = number_digits_octal(n);
+	}
+	else if (c == 'x' && n > 0)
+	{
+		print_hexadecimal_x(n);
+		l = number_digits_hexadecimal_x(n);
+	}
+	else if (c == 'X' && n > 0)
+	{
+		print_hexadecimal_X(n);
+		l = number_digits_hexadecimal_x(n);
+	}
+	if ((c == 'd' || c == 'i' || c == 'u') &&  n > 0)
 	{
 		print_integer(n);
 		l = number_digits(n);
 	}
 	else if ((c == 'd' || c == 'i') && n < 0)
 	{
-		k = -n;
 		_putchar('-');
 		print_integer(k);
 		l = number_digits(k) + 1;
 	}
-
 	return (l);
 }
