@@ -31,7 +31,8 @@ int _print_cases(const char *format, va_list args)
 		n = print_function(c, va_arg(args, char *), n, m);
 	else if (*format == '%')
 		n = print_function('%', s, n, m);
-	else if (*format == 'd' || *format == 'i' || *format == 'b')
+	else if (*format == 'd' || *format == 'i' || *format == 'b' || *format == 'u'
+		|| *format == 'o' || *format == 'x' || *format == 'X')
 		n = print_function(*format, s, (long int)va_arg(args, int), m);
 	else
 		return (-1);
