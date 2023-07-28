@@ -65,6 +65,8 @@ __attribute__((unused)) unsigned long int m)
 			print_numbers(k);
 			return (number_digits(k) + 1);
 		}
+		else
+			return (0);
 	}
 	if (c == 'b' && n > 0)
 		l = number_digits_binary(n);
