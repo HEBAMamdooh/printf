@@ -59,7 +59,7 @@ void print_hexadecimal_x(unsigned long int n)
 		return;
 
 	print_hexadecimal_x(n / 16);
-	
+
 	if (n % 16 == 10)
 		_putchar('a');
 	else if (n % 16 == 11)
