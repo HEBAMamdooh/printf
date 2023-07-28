@@ -47,42 +47,36 @@ __attribute__((unused)) unsigned long int m)
 {
 	int l;
 	unsigned long int k = -n;
+	void (*print_numbers)(unsigned long int);
 
+	print_numbers = get_h(s);
 	if (n == 0)
 	{
 		_putchar('0');
 		l = 1;
 	}
+	else if (n > 0)
+		print_numbers(n);
+	else
+	{
+		if (c == 'd' || c == 'i')
+		{
+			_putchar('-');
+			print_numbers(k);
+			l = number_digits(k);
+		}
+	}
 	if (c == 'b' && n > 0)
-	{
-		print_binary(n);
 		l = number_digits_binary(n);
-	}
 	else if (c == 'o' && n > 0)
-	{
-		print_octal(n);
 		l = number_digits_octal(n);
-	}
-	else if (c == 'x' && n > 0)
-	{
-		print_hexadecimal_x(n);
-		l = number_digits_hexadecimal_x(n);
-	}
-	else if (c == 'X' && n > 0)
-	{
-		print_hexadecimal_X(n);
-		l = number_digits_hexadecimal_x(n);
-	}
-	if ((c == 'd' || c == 'i' || c == 'u') &&  n > 0)
-	{
-		print_integer(n);
+	else if (c == 'u' && n > 0)
 		l = number_digits(n);
-	}
-	else if ((c == 'd' || c == 'i') && n < 0)
-	{
-		_putchar('-');
-		print_integer(k);
-		l = number_digits(k) + 1;
-	}
+	else if ((c == 'x' || c == 'X') && n > 0)
+		l = number_digits_hexadecimal_x(n);
+	else if ((c == 'd' || c == 'i') &&  n > 0)
+		l = number_digits(n);
+	else
+		return (0);
 	return (l);
 }
