@@ -24,7 +24,7 @@ int (*get_f(const char *s))(char, const char*, long int, unsigned long int)
 		{NULL, NULL}
 	};
 
-	while (*(s + 1) != '\0' && conv_specs[i].conv_spec != NULL)
+	while (conv_specs[i].conv_spec != NULL)
 	{
 		if (*s == *(conv_specs[i].conv_spec))
 		{
