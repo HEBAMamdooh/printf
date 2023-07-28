@@ -21,7 +21,7 @@ typedef struct conv_spec
  */
 typedef struct conv_spec_
 {
-	char *conv_spec;
+	char *conv_spec_;
 	void (*h)(unsigned long int n);
 } conv_spec_h;
 
