@@ -31,10 +31,10 @@ int _print_cases(const char *format, va_list args)
 		n = print_function(c, va_arg(args, char *), n, m);
 	else if (*format == '%')
 		n = print_function('%', s, n, m);
-	else if (*format == 'd' || *format == 'i' || *format == 'b'
-		|| *format == 'o' || *format == 'x' || *format == 'X')
+	else if (*format == 'd' || *format == 'i')
 		n = print_function(*format, format, (long int)va_arg(args, int), m);
-	else if (*format == 'u')
+	else if (*format == 'u' || *format == 'o' || *format == 'x'
+		|| *format == 'X' || *format == 'b')
 		n = print_function(*format, format,
 				(unsigned long int)va_arg(args, long int), m);
 	else
