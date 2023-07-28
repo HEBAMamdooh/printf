@@ -63,7 +63,7 @@ __attribute__((unused)) unsigned long int m)
 		{
 			_putchar('-');
 			print_numbers(k);
-			l = number_digits(k);
+			l = number_digits(k) + 1;
 		}
 	}
 	if (c == 'b' && n > 0)
