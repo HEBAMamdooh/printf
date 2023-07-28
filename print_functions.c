@@ -53,7 +53,7 @@ __attribute__((unused)) unsigned long int m)
 	if (n == 0)
 	{
 		_putchar('0');
-		l = 1;
+		return (1);
 	}
 	else if (n > 0)
 		print_numbers(n);
