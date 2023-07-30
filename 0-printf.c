@@ -34,7 +34,7 @@ int _print_cases(const char *format, va_list args)
 		n = print_function(*format, format, va_arg(args, int), m);
 	else if (*format == 'u' || *format == 'b' || *format == 'o'
 		|| *format == 'x' || *format == 'X')
-		n = print_function(*format, format, n, va_arg(args, long int));
+		n = print_function(*format, format, n, va_arg(args, int));
 	else
 		return (-1);
 	if (n == -1)
