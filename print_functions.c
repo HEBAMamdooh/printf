@@ -67,7 +67,7 @@ char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 			return (0);
 	}
 	if (c == 'b' && m > 0)
-		l = number_digits_binary(n);
+		l = number_digits_binary(m);
 	else if (c == 'o' && m > 0)
 		l = number_digits_octal(n);
 	else if (c == 'u' && m > 0)
