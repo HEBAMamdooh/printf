@@ -42,7 +42,7 @@ int _print_int(__attribute__((unused)) char c, __attribute__((unused)) const
 char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 {
 	int l;
-	unsigned long int k = -n;
+	unsigned int k = -n;
 	void (*print_numbers)(unsigned int);
 
 	print_numbers = get_h(s);
@@ -73,7 +73,7 @@ char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 	else if (c == 'u')
 		l = number_digits(m);
 	else if (c == 'x' || c == 'X')
-		l = number_digits_hexadecimal_x(n);
+		l = number_digits_hexadecimal_x(m);
 	else if ((c == 'd' || c == 'i') &&  n > 0)
 		l = number_digits(n);
 	else
