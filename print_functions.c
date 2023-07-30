@@ -66,13 +66,13 @@ char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 		else
 			return (0);
 	}
-	if (c == 'b' && m > 0)
+	if (c == 'b')
 		l = number_digits_binary(m);
-	else if (c == 'o' && m > 0)
-		l = number_digits_octal(n);
-	else if (c == 'u' && m > 0)
-		l = number_digits(n);
-	else if ((c == 'x' || c == 'X') && m > 0)
+	else if (c == 'o')
+		l = number_digits_octal(m);
+	else if (c == 'u')
+		l = number_digits(m);
+	else if (c == 'x' || c == 'X')
 		l = number_digits_hexadecimal_x(n);
 	else if ((c == 'd' || c == 'i') &&  n > 0)
 		l = number_digits(n);
