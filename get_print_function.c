@@ -6,7 +6,7 @@
  *
  * Return: A pointer to the correct function. or NULL if there is no match
  */
-int (*get_f(const char *s))(char, const char*, long int, unsigned long int)
+int (*get_f(const char *s))(char, const char*, int, unsigned int)
 {
 	int i = 0;
 
