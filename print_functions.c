@@ -1,7 +1,6 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdlib.h>
-
 /**
  * _print_char - Handle the conversion specifer c
  * @c: A character
@@ -11,9 +10,8 @@
  *
  * Return: 1 or -1 if it fails.
  */
-int _print_char(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) long int n,
-__attribute__((unused)) unsigned long int m)
+int _print_char(__attribute__((unused)) char c, __attribute__((unused)) const
+char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 {
 	return (_putchar(c));
 }
@@ -26,9 +24,8 @@ __attribute__((unused)) unsigned long int m)
  *
  * Return: The length of the string or -1 if it fails.
  */
-int _print_string(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) long int n,
-__attribute__((unused)) unsigned long int m)
+int _print_string(__attribute__((unused)) char c, __attribute__((unused)) const
+char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 {
 	return (_puts(s));
 }
@@ -41,22 +38,23 @@ __attribute__((unused)) unsigned long int m)
  *
  * Return: The number of bytes printed or - 1 if it fails.
  */
-int _print_int(__attribute__((unused)) char c,
-__attribute__((unused)) const char *s, __attribute__((unused)) long int n,
-__attribute__((unused)) unsigned long int m)
+int _print_int(__attribute__((unused)) char c, __attribute__((unused)) const
+char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 {
 	int l;
 	unsigned long int k = -n;
-	void (*print_numbers)(unsigned long int);
+	void (*print_numbers)(unsigned int);
 
 	print_numbers = get_h(s);
-	if (n == 0)
+	if ((n == 0) || (n == 0 && m == 0))
 	{
 		_putchar('0');
 		return (1);
 	}
 	else if (n > 0)
 		print_numbers(n);
+	else if (m > 0)
+		print_numbers(m);
 	else
 	{
 		if (c == 'd' || c == 'i')
@@ -68,13 +66,13 @@ __attribute__((unused)) unsigned long int m)
 		else
 			return (0);
 	}
-	if (c == 'b' && n > 0)
+	if (c == 'b' && m > 0)
 		l = number_digits_binary(n);
-	else if (c == 'o' && n > 0)
+	else if (c == 'o' && m > 0)
 		l = number_digits_octal(n);
-	else if (c == 'u' && n > 0)
+	else if (c == 'u' && m > 0)
 		l = number_digits(n);
-	else if ((c == 'x' || c == 'X') && n > 0)
+	else if ((c == 'x' || c == 'X') && m > 0)
 		l = number_digits_hexadecimal_x(n);
 	else if ((c == 'd' || c == 'i') &&  n > 0)
 		l = number_digits(n);
