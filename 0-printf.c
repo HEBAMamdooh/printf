@@ -18,7 +18,7 @@ int _print_cases(const char *format, va_list args)
 	print_function = get_f(format);
 	if (print_function == NULL)
 	{
-		num_character += _putchar('%');
+		num_characters += _putchar('%');
 		if (*(format + 1) == ' ')
 			format++;
 		else
