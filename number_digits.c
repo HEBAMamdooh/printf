@@ -6,7 +6,7 @@
  *
  * Return: The number of digits.
  */
-int number_digits_binary(int n)
+int number_digits_binary(unsigned int n)
 {
 	if (n / 2 == 0 && n % 2 == 0)
 		return (0);
@@ -20,7 +20,7 @@ int number_digits_binary(int n)
  *
  * Return: The number of digits.
  */
-int number_digits(int n)
+int number_digits(unsigned int n)
 {
 	if (n / 10 == 0 && n % 10 == 0)
 		return (0);
@@ -34,7 +34,7 @@ int number_digits(int n)
  *
  * Return: The number of digits.
  */
-int number_digits_octal(int n)
+int number_digits_octal(unsigned int n)
 {
 	if (n / 8 == 0 && n % 8 == 0)
 		return (0);
@@ -48,7 +48,7 @@ int number_digits_octal(int n)
  *
  * Return: The number of digits.
  */
-int number_digits_hexadecimal_x(int n)
+int number_digits_hexadecimal_x(unsigned int n)
 {
 	if (n / 16 == 0 && n % 16 == 0)
 		return (0);
