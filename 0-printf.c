@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 /**
  * _print_cases - prints a single argument based on the given specifier.
  * @format: the string.
@@ -10,10 +11,10 @@
  */
 int _print_cases(const char *format, va_list args)
 {
-	int (*print_function)(char, const char *, long int, unsigned long int);
+	int (*print_function)(char, const char *, int, unsigned int);
 	int num_characters = 0;
-	long int n = 0;
-	unsigned long int m = 0;
+	long int n = -1;
+	unsigned long int m = 1;
 	char *s = NULL, c = 'o';
 
 	print_function = get_f(format);
@@ -32,11 +33,10 @@ int _print_cases(const char *format, va_list args)
 	else if (*format == '%')
 		n = print_function('%', s, n, m);
 	else if (*format == 'd' || *format == 'i')
-		n = print_function(*format, format, (long int)va_arg(args, int), m);
-	else if (*format == 'u' || *format == 'o' || *format == 'x'
-		|| *format == 'X' || *format == 'b')
-		n = print_function(*format, format,
-				(unsigned long int)va_arg(args, long int), m);
+		n = print_function(*format, format, va_arg(args, int), m);
+	else if (*format == 'u' || *format == 'b' || *format == 'o'
+		|| *format == 'x' || *format == 'X')
+		n = print_function(*format, format, n, va_arg(args, int));
 	else
 		return (-1);
 	if (n == -1)
