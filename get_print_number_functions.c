@@ -8,7 +8,7 @@
  *
  * Return: A pointer to the correct function. or NULL if there is no match
  */
-void (*get_h(const char *s))(unsigned long int)
+void (*get_h(const char *s))(unsigned int)
 {
 	int i = 0;
 
