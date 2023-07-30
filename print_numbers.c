@@ -8,7 +8,7 @@
  *
  * Return: void.
  */
-void print_binary(unsigned long int n)
+void print_binary(unsigned int n)
 {
 	if (n / 2 == 0 && n % 2 == 0)
 		return;
@@ -23,7 +23,7 @@ void print_binary(unsigned long int n)
  *
  * Return: void
  */
-void print_integer(unsigned long int n)
+void print_integer(unsigned int n)
 {
 	if (n / 10 == 0 && n % 10 == 0)
 		return;
@@ -38,7 +38,7 @@ void print_integer(unsigned long int n)
  *
  * Return: void
  */
-void print_octal(unsigned long int n)
+void print_octal(unsigned int n)
 {
 	if (n / 8 == 0 && n % 8 == 0)
 		return;
@@ -53,7 +53,7 @@ void print_octal(unsigned long int n)
  *
  * Return: void
  */
-void print_hexadecimal_x(unsigned long int n)
+void print_hexadecimal_x(unsigned int n)
 {
 	if (n / 16 == 0 && n % 16 == 0)
 		return;
@@ -82,7 +82,7 @@ void print_hexadecimal_x(unsigned long int n)
  *
  * Return: void
  */
-void print_hexadecimal_X(unsigned long int n)
+void print_hexadecimal_X(unsigned int n)
 {
 	if (n / 16 == 0 && n % 16 == 0)
 		return;
