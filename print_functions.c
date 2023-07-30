@@ -42,11 +42,11 @@ int _print_int(__attribute__((unused)) char c, __attribute__((unused)) const
 char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 {
 	int l;
-	unsigned int k = -n;
+	unsigned int k;
 	void (*print_numbers)(unsigned int);
 
 	print_numbers = get_h(s);
-	if ((n == 0) || (n == 0 && m == 0))
+	if ((n == -1 && (m == 0)) || (n == 0 && m == 0))
 	{
 		_putchar('0');
 		return (1);
@@ -59,6 +59,7 @@ char *s, __attribute__((unused)) int n, __attribute__((unused)) unsigned int m)
 	{
 		if (c == 'd' || c == 'i')
 		{
+			k = -n,
 			_putchar('-');
 			print_numbers(k);
 			return (number_digits(k) + 1);
