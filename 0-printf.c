@@ -11,7 +11,7 @@
 int _print_cases(const char *format, va_list args)
 {
 	int (*print_function)(char, const char *, int, unsigned int);
-	int num_characters = 0, n = 0;
+	int num_characters = 0, n = -1;
 	unsigned int m = 0;
 	char *s = NULL, c = 'o';
 
@@ -34,7 +34,7 @@ int _print_cases(const char *format, va_list args)
 		n = print_function(*format, format, va_arg(args, int), m);
 	else if (*format == 'u' || *format == 'b' || *format == 'o'
 		|| *format == 'x' || *format == 'X')
-		n = print_function(*format, format, n, va_arg(args, int));
+		n = print_function(*format, format, n, va_arg(args, long int));
 	else
 		return (-1);
 	if (n == -1)
