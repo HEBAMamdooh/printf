@@ -36,7 +36,7 @@ int number_digits(long int n)
  */
 int number_digits_octal(long int n)
 {
-	if (n / 8 == 0 && n % n == 0)
+	if (n / 8 == 0 && n % 8 == 0)
 		return (0);
 
 	return (1 + number_digits_octal(n / 8));
