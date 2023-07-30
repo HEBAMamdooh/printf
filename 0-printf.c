@@ -11,7 +11,7 @@
 int _print_cases(const char *format, va_list args)
 {
 	int (*print_function)(char, const char *, int, unsigned int);
-	int num_characters = 0, n = -1;
+	int num_characters = 0, n = 0;
 	unsigned int m = 0;
 	char *s = NULL, c = 'o';
 
