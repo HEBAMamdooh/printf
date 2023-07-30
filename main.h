@@ -41,9 +41,9 @@ void print_integer(unsigned int n);
 void print_octal(unsigned int n);
 void print_hexadecimal_x(unsigned int n);
 void print_hexadecimal_X(unsigned int n);
-int number_digits_binary(int n);
-int number_digits(int n);
-int number_digits_octal(int n);
-int number_digits_hexadecimal_x(int n);
+int number_digits_binary(unsigned int n);
+int number_digits(unsigned int n);
+int number_digits_octal(unsigned int n);
+int number_digits_hexadecimal_x(unsigned int n);
 
 #endif /* MAIN_H */
