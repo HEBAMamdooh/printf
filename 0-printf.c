@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
-#include <limits.h>
 /**
  * _print_cases - prints a single argument based on the given specifier.
  * @format: the string.
@@ -12,9 +11,8 @@
 int _print_cases(const char *format, va_list args)
 {
 	int (*print_function)(char, const char *, int, unsigned int);
-	int num_characters = 0;
-	long int n = -1;
-	unsigned long int m = 1;
+	int num_characters = 0, n = 0;
+	unsigned int m = 0;
 	char *s = NULL, c = 'o';
 
 	print_function = get_f(format);
